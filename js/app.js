@@ -26,7 +26,7 @@ var app = new Framework7({
     root: "#app", // App root element
     id: "com.freshnear.app", // App bundle ID
     name: "Fresh&Near", // App name
-    theme: "ios", // Automatic theme detection
+    theme: "md", // Automatic theme detection
     routes: routes
 });
 
