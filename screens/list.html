@@ -1,0 +1,108 @@
+<template>
+    <div class="page" data-name="list">
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back" style="color:white;">
+                        <i class="icon icon-back"></i>
+                    </a>
+                </div>
+                <div class="title">My Requests</div>
+                <div class="right">
+                </div>
+            </div>
+        </div>
+        <div class="page-content">
+            {{#each saved_requests}}
+
+            <div class="card social-card" data-id="{{oid}}">
+                <div class="card-header">
+                    <div class="social-avatar">
+                        <ion-icon name="file-tray-full-outline" class="card-clock-icon" size="large"
+                            style="color:aqua;">
+                        </ion-icon>
+                    </div>
+                    <div class="social-name">{{first_name}}</div>
+                    <!-- <div class="social-date">{{js "moment(this.created_at).fromNow()"}}</div> -->
+                    <div class="social-date">{{js "moment(this.visit_date).format('DD MMMM, YYYY [at] HH:mm a')"}}</div>
+                </div>
+                <div class="card-content padding">
+                    {{instructions}}
+                </div>
+                <div class="card-footer">
+                    <div class="display-flex">
+                        <ion-icon name="time-outline" class="card-clock-icon"></ion-icon>
+                        &nbsp;{{js "moment(this.created_at).fromNow()"}}
+                    </div>
+                    <div class="display-flex" data-id="{{oid}}" @click="deleteRequest('{{request_id}}')">
+                        <ion-icon name="trash-outline" class="card-del-icon"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            {{else}}
+            <div class="flexy animated bounceIn" style="height:90vh;">
+                <div class="text-align-center">
+                    <h3 class="align-self-center">No requests</h3>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</template>
+
+<script>
+    return {
+        mounted() {
+            var self = this;
+            var saved_requests = localStorage.getItem("saved_requests");
+            if (saved_requests && saved_requests != '') {
+                saved_requests = JSON.parse(saved_requests);
+            } else {
+                saved_requests = [];
+            }
+
+            self.$setState({
+                saved_requests: saved_requests,
+            });
+
+        },
+        data: function () {
+            return {
+                saved_requests: [],
+            }
+        },
+        methods: {
+            deleteRequest: function (request_id) {
+                var self = this;
+                var saved_requests = localStorage.getItem("saved_requests");
+
+                if (saved_requests && saved_requests != '') {
+                    saved_requests = JSON.parse(saved_requests);
+                } else {
+                    saved_requests = [];
+                }
+
+                var saved_requests = _.reject(saved_requests, function (o) {
+                    return o.request_id == request_id;
+                });
+
+                self.$setState({
+                    saved_requests: saved_requests,
+                });
+                localStorage.setItem("saved_requests", JSON.stringify(saved_requests));
+                showToast("Deleted successfully", "bottom");
+            },
+            clearCart: function () {
+                var self = this;
+                localStorage.removeItem("saved_requests");
+                self.$setState({
+                    saved_requests: [],
+                    cart_total: 0
+                });
+                showToast("Cart cleared successfully", "bottom");
+            }
+        }
+    }
+</script>

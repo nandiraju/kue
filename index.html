@@ -1,0 +1,117 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+      <meta charset="UTF-8" />
+      <title>QToken</title>
+      <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/framework7/5.5.0/css/framework7.bundle.min.css" />
+      <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.0/collection/components/icon/icon.min.css" />
+      <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+      <!-- partial:index.partial.html -->
+      <div id="app" class="theme-dark">
+          <div class="statusbar"></div>
+          <div class="view view-main">
+              <div class="page" data-name="home">
+                  <div class="navbar">
+                      <div class="navbar-bg"></div>
+                      <div class="navbar-inner">
+                          <div class="title">QToken</div>
+                          <div class="right" onclick="loadScreen('/list/')">
+                              <ion-icon name="albums-outline" style="color:white;font-size: 25px;margin-right:10px;">
+                              </ion-icon>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="page-content">
+                      <div class="block-title">Enter your details to get a Token</div>
+
+
+                      <form class="list inset form-list" id="qform">
+                          <ul class="form-ul">
+                              <li class="form-li">
+                                  <div class="row">
+                                      <div class="col-50">
+                                          <div class="item-content item-input form-item-input">
+                                              <div class="item-inner">
+                                                  <div class="item-title item-label">First Name</div>
+                                                  <div class="item-input-wrap">
+                                                      <input type="text" name="first_name"
+                                                          placeholder="Your first name" />
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-50">
+                                          <div class="item-content item-input form-item-input">
+                                              <div class="item-inner">
+                                                  <div class="item-title item-label">Last Name</div>
+                                                  <div class="item-input-wrap">
+                                                      <input type="text" name="last_name"
+                                                          placeholder="Your last name" />
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </li>
+
+                              <li class="form-li">
+                                  <div class="item-content item-input form-item-input">
+                                      <div class="item-inner">
+                                          <div class="item-title item-label">Phone</div>
+                                          <div class="item-input-wrap">
+                                              <input type="text" name="phone" placeholder="Enter your phone number" />
+                                          </div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li class="form-li">
+                                  <div class="item-content item-input form-item-input">
+                                      <div class="item-inner">
+                                          <div class="item-title item-label">Date of Visit</div>
+                                          <div class="item-input-wrap">
+                                              <input type="date" name="visit_date"
+                                                  placeholder="When do you plan to visit" value="2020-03-30" />
+                                          </div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li class="align-top form-li">
+                                  <div class="item-content item-input form-item-input">
+                                      <div class="item-inner">
+                                          <div class="item-title item-label">Any instructions</div>
+                                          <div class="item-input-wrap">
+                                              <textarea name="instructions" placeholder="Enter instructions"></textarea>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </li>
+                          </ul>
+                      </form>
+
+                      <div class="text-align-center">
+                          <button style="width:150px;margin:auto;" class="button button-fill color-blue"
+                              id="enter-queue">
+                              Enter Queue
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- partial -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/framework7/5.5.0/js/framework7.bundle.min.js"></script>
+      <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+
+      <script src="js/app.js"></script>
+  </body>
+
+  </html>

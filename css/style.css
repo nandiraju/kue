@@ -1,0 +1,68 @@
+.navbar-bg {
+    background: #222;
+}
+
+.page {
+    background: #333;
+}
+
+.form-ul,
+.form-list {
+    background: none !important;
+}
+
+.form-li {
+    margin-top: 15px;
+    /*   border:1px solid red; */
+}
+
+.form-item-input {
+    background: #333;
+    border-radius: 8px;
+
+}
+
+:root {
+    --f7-theme-color: gold;
+    --f7-theme-color: #f00;
+}
+
+
+.social-card {
+    box-shadow: -1px 1px 20px rgba(0, 0, 0, 0.1);
+    margin: 25px 20px;
+    background: #444;
+}
+
+
+
+.social-card .card-header {
+    display: block;
+    padding: 10px;
+}
+
+.social-card .social-avatar {
+    float: left;
+}
+
+.social-card .social-name {
+    margin-left: 44px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.social-card .social-date {
+    margin-left: 44px;
+    font-size: 13px;
+    color: #8e8e93;
+}
+
+ion-icon.card-del-icon {
+    font-size: 18px;
+    --ionicon-stroke-color: 1px;
+    color: red;
+}
+
+ion-icon.card-clock-icon {
+    font-size: 18px;
+}
